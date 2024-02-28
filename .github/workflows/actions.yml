@@ -1,0 +1,28 @@
+on: [push]
+
+jobs:
+  test-pass:
+    runs-on: ubuntu-latest
+    name: This test should pass
+    steps:
+      - uses: actions/checkout@v3
+      - id: pass
+        uses: felixjones/github-mgba-rom-test@v1
+        with:
+          swi-call: 0x27
+          read-register: 'r0'
+          rom-path: 'pass.gba'
+          success-code: 0  # Pass
+
+  test-fail:
+    runs-on: ubuntu-latest
+    name: This test should fail
+    steps:
+      - uses: actions/checkout@v3
+      - id: fail
+        uses: felixjones/github-mgba-rom-test@v1
+        with:
+          swi-call: 0x27
+          read-register: 'r0'
+          rom-path: 'fail.gba'
+          success-code: 1  # Failure
