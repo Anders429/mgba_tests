@@ -7,7 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: pass
-        uses: felixjones/github-mgba-rom-test@v1
+        uses: felixjones/github-mgba-rom-test@9a95e630e45dda3d2198a8d392fbaa1f018f1fba
         with:
           swi-call: 0x27
           read-register: 'r0'
@@ -20,7 +20,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - id: fail
-        uses: felixjones/github-mgba-rom-test@v1
+        uses: felixjones/github-mgba-rom-test@9a95e630e45dda3d2198a8d392fbaa1f018f1fba
         with:
           swi-call: 0x27
           read-register: 'r0'
